@@ -1,0 +1,44 @@
+Captured locally with:
+
+  ./build/observe ./www 19002
+  ./build/bcurl -v localhost:19002/index.html
+
+--- client trace ---
+[client] request (54 bytes)
+0000  43 4e 01 01 00 00 00 02 00 00 00 26 00 00 00 01  |CN.........&....|
+0010  00 0b 2f 69 6e 64 65 78 2e 68 74 6d 6c 08 00 09  |../index.html...|
+0020  6c 6f 63 61 6c 68 6f 73 74 09 00 0a 63 6e 2d 62  |localhost...cn-b|
+0030  63 75 72 6c 2f 31                                |curl/1|
+[client] frame (340 bytes)
+0000  43 4e 01 02 00 00 00 04 00 00 01 44 00 00 00 01  |CN.........D....|
+0010  00 c8 01 00 18 74 65 78 74 2f 68 74 6d 6c 3b 20  |.....text/html; |
+0020  63 68 61 72 73 65 74 3d 75 74 66 2d 38 02 00 03  |charset=utf-8...|
+0030  32 36 31 03 00 0c 63 6e 2d 6f 62 73 65 72 76 65  |261...cn-observe|
+0040  2f 31 04 00 0a 6b 65 65 70 2d 61 6c 69 76 65 3c  |/1...keep-alive<|
+0050  21 64 6f 63 74 79 70 65 20 68 74 6d 6c 3e 0a 3c  |!doctype html>.<|
+0060  68 74 6d 6c 3e 0a 3c 68 65 61 64 3e 3c 6d 65 74  |html>.<head><met|
+0070  61 20 63 68 61 72 73 65 74 3d 22 75 74 66 2d 38  |a charset="utf-8|
+0080  22 3e 3c 74 69 74 6c 65 3e 43 4e 20 42 69 6e 61  |"><title>CN Bina|
+0090  72 79 20 50 72 6f 74 6f 63 6f 6c 3c 2f 74 69 74  |ry Protocol</tit|
+00a0  6c 65 3e 3c 2f 68 65 61 64 3e 0a 3c 62 6f 64 79  |le></head>.<body|
+00b0  3e 0a 3c 68 31 3e 48 65 6c 6c 6f 20 66 72 6f 6d  |>.<h1>Hello from|
+00c0  20 74 68 65 20 62 69 6e 61 72 79 20 6e 65 74 77  | the binary netw|
+00d0  6f 72 6b 69 6e 67 20 70 72 6f 6a 65 63 74 2e 3c  |orking project.<|
+00e0  2f 68 31 3e 0a 3c 70 3e 54 68 69 73 20 66 69 6c  |/h1>.<p>This fil|
+00f0  65 20 77 61 73 20 73 65 72 76 65 64 20 62 79 20  |e was served by |
+0100  3c 63 6f 64 65 3e 6f 62 73 65 72 76 65 3c 2f 63  |<code>observe</c|
+0110  6f 64 65 3e 20 6f 76 65 72 20 54 43 50 20 75 73  |ode> over TCP us|
+0120  69 6e 67 20 6f 75 72 20 63 75 73 74 6f 6d 20 62  |ing our custom b|
+0130  69 6e 61 72 79 20 70 72 6f 74 6f 63 6f 6c 2e 3c  |inary protocol.<|
+0140  2f 70 3e 0a 3c 2f 62 6f 64 79 3e 0a 3c 2f 68 74  |/p>.</body>.</ht|
+0150  6d 6c 3e 0a                                      |ml>.|
+
+--- body ---
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>CN Binary Protocol</title></head>
+<body>
+<h1>Hello from the binary networking project.</h1>
+<p>This file was served by <code>observe</code> over TCP using our custom binary protocol.</p>
+</body>
+</html>
